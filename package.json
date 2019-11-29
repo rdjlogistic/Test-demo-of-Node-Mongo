@@ -1,0 +1,54 @@
+{
+  "name": "sails-1-template",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "bootstrap": "^4.3.1",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.4.2",
+    "graphql-tools": "^4.0.5",
+    "grunt": "1.0.4",
+    "grunt-contrib-sass": "^1.0.0",
+    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken-refresh": "^5.7.0",
+    "kue": "^0.11.6",
+    "lodash": "^4.17.11",
+    "nodemailer": "^4.7.0",
+    "nodemailer-ses-transport": "^1.5.1",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "sails": "^1.2.3",
+    "sails-hook-grunt": "^4.0.0",
+    "sails-hook-organics": "^0.15.0",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^2.0.0",
+    "sails-mongo": "^1.0.1",
+    "sails-mysql": "^1.0.1"
+  },
+  "devDependencies": {
+    "@sailshq/eslint": "^4.19.3",
+    "grunt": "^1.0.3",
+    "grunt-contrib-copy": "1.0.0",
+    "grunt-sails-linker": "1.0.4"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chintan/sails-1-template.git"
+  },
+  "author": "chintan",
+  "license": "",
+  "engines": {
+    "node": "^8.12"
+  }
+}

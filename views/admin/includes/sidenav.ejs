@@ -1,0 +1,90 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <img alt="image" class="rounded-circle" src="/admin/images/profile_small.jpg" />
+          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <span class="block m-t-xs font-bold"
+              ><%= (req.session && req.session.admin) ? req.session.admin.firstName + ' ' + req.session.admin.lastName :
+              '' %></span
+            >
+            <span class="text-muted text-xs block">Admin <b class="caret"></b></span>
+          </a>
+          <ul class="dropdown-menu animated fadeInRight m-t-xs">
+            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+            <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
+            <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
+            <li class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+          </ul>
+        </div>
+        <div class="logo-element">
+          <%= sails.config.shortName %>
+        </div>
+      </li>
+
+      <li
+        class="<%= (['/admin/product','/admin/product/create','/admin/product/edit/' + req.params['productId']].includes(req.path)) ? 'active' : req.path %>"
+      >
+        <a href="/admin/product">
+          <i class="fa fa-users"></i>
+          <span class="nav-label">Product</span>
+          <!--<span class="fa arrow"></span>-->
+        </a>
+      </li>
+
+      <li
+        class="<%= (['/admin/users','/admin/user/create','/admin/user/edit/' + req.params['userId']].includes(req.path)) ? 'active' : req.path %>"
+      >
+        <a href="/admin/users">
+          <i class="fa fa-user"></i>
+          <span class="nav-label">Users</span>
+          <!--<span class="fa arrow"></span>-->
+        </a>
+      </li>
+      <li
+      class="<%= (['/admin/product-view','/admin/product-view/create','/admin/product-view/edit/' + req.params['productViewId']].includes(req.path)) ? 'active' : req.path %>"
+    >
+      <a href="/admin/product-view">
+        <i class="fa fa-user"></i>
+        <span class="nav-label">Product View</span>
+        <!--<span class="fa arrow"></span>-->
+      </a>
+    </li>
+
+      <!-- <li
+        class="<%= ([
+          '/admin/role','/admin/role/create',
+          '/admin/permission','/admin/permission/create',
+          '/admin/permission/edit/'+req.params['id'],'/admin/user-role',
+          '/admin/role-permission','/admin/role-permission/edit/'+req.params['id'],
+          '/admin/role/edit/' + req.params['id']].includes(req.path)) ? 'active' : req.path %>"
+      >
+        <a href="javascript:void(0)"
+          ><i class="fa fa-lock"></i> <span class="nav-label">ROLE MANAGE</span><span class="fa arrow"></span
+        ></a>
+        <ul class="nav nav-second-level">
+          <li
+            class="<%= (['/admin/role','/admin/role/create','/admin/role/edit/' + req.params['id']].includes(req.path)) ? 'active' : req.path %>"
+          >
+            <a href="/admin/role">ROLE</a>
+          </li>
+
+          <li
+            class="<%= (['/admin/permission','/admin/permission/create',
+                  '/admin/permission/edit/'+req.params['id']].includes(req.path)) ? 'active' : req.path %>"
+          >
+            <a href="/admin/permission">PERMISSION</a>
+          </li>
+
+          <li
+            class="<%= (['/admin/role-permission','/admin/role-permission/edit/'+req.params['id']].includes(req.path)) ? 'active' : req.path %>"
+          >
+            <a href="/admin/role-permission">ROLE PERMISSION</a>
+          </li>
+        </ul>
+      </li> -->
+    </ul>
+  </div>
+</nav>

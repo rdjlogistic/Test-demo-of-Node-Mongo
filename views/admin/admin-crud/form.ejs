@@ -1,0 +1,91 @@
+<% if (adminRecord && adminRecord.id) { %>
+<form id="adminForm" method="POST" action="/admin/update/<%= adminRecord.id %>">
+  <% } else { %>
+  <form id="adminForm" method="POST" action="/admin/create">
+    <% } %>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          name="firstName"
+          value="<% if (adminRecord.firstName) { %><%= adminRecord.firstName %><% } %>"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          name="lastName"
+          value="<% if (adminRecord.lastName) { %><%= adminRecord.lastName %><% } %>"
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          value="<% if (adminRecord.email) { %><%= adminRecord.email %><% } %>"
+        />
+      </div>
+    </div>
+    <% if (!adminRecord.email) { %>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" name="password" value="" />
+        <!-- <input type="password" class="form-control" name="password" value="<% if (adminRecord.password) { %><%= adminRecord.password %><% } %>"> -->
+      </div>
+    </div>
+    <% } %>
+    <div class="hr-line-dashed"></div>
+    <div class="form-group row">
+      <div class="col-sm-4 col-sm-offset-2">
+        <a href="/admin/admins" class="btn btn-white btn-sm">Cancel</a>
+        <button class="btn btn-primary btn-sm" type="submit">Save changes</button>
+      </div>
+    </div>
+  </form>
+  <% if(req.session.flash) { %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      toastrDisplay("<%= req.session.flash.type %>", "<%= req.session.flash.message %>");
+    });
+  </script>
+  <% req.session.flash = {}; %> <% }%>
+
+  <script>
+    $(document).ready(function() {
+      $("#role").select2({ multiple: true, placeholder: "Select Role" });
+
+      var validator = $("#adminForm").validate({
+        rules: {
+          firstName: { required: true },
+          lastName: { required: true },
+          password: {
+            required: true,
+          },
+
+          email: {
+            required: true,
+            email: true,
+          },
+          "roles[]": { required: true },
+        },
+        messages: {
+          firstName: { required: "First Name is required" },
+          lastName: { required: "Last Name is required" },
+          email: { required: "Email is required", email: "Invalid email id", remote: "Email address already exist" },
+          password: { required: "Password is required" },
+        },
+      });
+    });
+  </script>
+</form>

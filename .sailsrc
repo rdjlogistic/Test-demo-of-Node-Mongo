@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "grunt": false
+  },
+  "paths": {
+    "public": ".tmp/public"
+  },
+  "generators": {
+    "modules": {}
+  },
+  "_generatedWith": {
+    "sails": "1.1.0",
+    "sails-generate": "1.16.0"
+  }
+}
