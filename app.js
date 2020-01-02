@@ -29,6 +29,7 @@ process.chdir(__dirname);
 
 
 // Attempt to import `sails` dependency, as well as `rc` (for loading `.sailsrc` files).
+// github cli testing.
 var sails;
 var rc;
 try {
